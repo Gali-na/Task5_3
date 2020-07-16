@@ -1,11 +1,13 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
+
 public class FileWorkTest {
-    private static final String FIRST_FILE_NAME = "test1";
-    private static final String SECOND_FILE_NAME = "test2";
-    private static final String THIRD_FILE_NAME = "test3";
-    private static final String FOURS_FILE_NAME = "test4";
+    private static final String FIRST_FILE_NAME = "test1.txt";
+    private static final String SECOND_FILE_NAME = "test2.txt";
+    private static final String THIRD_FILE_NAME = "test3.txt";
+    private static final String FOURS_FILE_NAME = "test4.txt";
 
     private static final String[] EMPTY_ARRAY_RESULT = new String[0];
     private static final String[] RESULT_FROM_LOWER_CASE =
@@ -14,7 +16,7 @@ public class FileWorkTest {
             new String[]{"wall", "wave", "width", "world", "www"};
 
     @Test
-    public void readFromEmptyFile() {
+    public void readFromEmptyFile() throws IOException {
         FileWork fileWork = new FileWork();
         String[] actualResult = fileWork.readFromFile(FIRST_FILE_NAME);
         Assert.assertArrayEquals("Test failed! You should returned empty array.",
@@ -22,7 +24,7 @@ public class FileWorkTest {
     }
 
     @Test
-    public void getLowerCaseResultFromFile() {
+    public void getLowerCaseResultFromFile() throws IOException {
         FileWork fileWork = new FileWork();
         String[] actualResult = fileWork.readFromFile(SECOND_FILE_NAME);
         Assert.assertArrayEquals("Test failed! You should returned next array "
@@ -31,7 +33,7 @@ public class FileWorkTest {
     }
 
     @Test
-    public void getCamelCaseResultFromFile() {
+    public void getCamelCaseResultFromFile() throws IOException {
         FileWork fileWork = new FileWork();
         String[] actualResult = fileWork.readFromFile(FOURS_FILE_NAME);
         Assert.assertArrayEquals("Test failed! You should returned next array "
@@ -40,7 +42,7 @@ public class FileWorkTest {
     }
 
     @Test
-    public void getEmptyResultFromFile() {
+    public void getEmptyResultFromFile() throws IOException {
         FileWork fileWork = new FileWork();
         String[] actualResult = fileWork.readFromFile(THIRD_FILE_NAME);
         Assert.assertArrayEquals("Test failed! You should returned empty array.",
